@@ -1,0 +1,182 @@
+/* ===== ESTILOS GENERALES ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+body, .container {
+    flex-direction: column;
+}
+
+/* ===== CARD ===== */
+/* ===== CARD ===== */
+.card {
+    margin: 20px auto; /* centra horizontalmente la card */
+    background-color: #fff;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* imagen a la izquierda, info a la derecha */
+    align-items: flex-start; /* alinea la parte superior de imagen y contenido */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== SECCIÓN DE IMAGEN ===== */
+.image-section {
+    flex: 0 0 auto; /* tamaño fijo según la imagen */
+    display: flex;
+    justify-content: flex-start; /* asegura que la imagen quede a la izquierda */
+    align-items: center;
+    padding: 10px;
+}
+
+.image-section img {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ===== SECCIÓN DE INFORMACIÓN ===== */
+.info-section {
+    padding: 20px;
+    flex: 1; /* ocupa el resto del espacio */
+    text-align: left; /* texto alineado a la izquierda */
+}
+.info-section h1 {
+    margin-top: 0;
+    color: #333;
+}
+
+.taxonomy {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.taxonomy li {
+    margin-bottom: 5px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.description {
+    color: #555;
+    line-height: 1.5;
+}
+
+.green-text {
+    color: green;
+}
+
+/* ===== SECCIÓN DEL MAPA ===== */
+.map-section {
+    display: flex;
+    flex-direction: column; /* apila título e imagen */
+    align-items: center;    /* centra horizontalmente todo */
+    justify-content: center;
+    margin: 50px 0;         /* separación arriba y abajo de la sección */
+    padding: 20px;          /* espacio interno */
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.map-section .map-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.map-section .map-image {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+/* ===== LEYENDA MAPA ===== */
+.leyenda-title {
+    text-align: center;
+     margin-bottom: 8px;
+    font-size: 20px; /* tamaño más pequeño */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.leyenda {
+    text-align: left;   /* Alinea el texto a la izquierda */
+    margin: 5px 0;  
+    font-size:16px  ;    /* Espacio entre cada leyenda */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+
+
+/* ===== RESPONSIVIDAD ===== */
+@media (max-width: 1024px) {
+    .image-section img {
+        max-width: 300px;
+    }
+    .map-section .map-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-section img {
+        width: 80%;
+        max-width: 350px;
+    }
+    .info-section {
+        padding: 15px;
+        text-align: center;
+    }
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    .map-section {
+        margin: 30px 0;
+        padding: 15px;
+    }
+    .map-section .map-title {
+        font-size: 1.3rem;
+    }
+    .map-section .map-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 50px;
+    }
+    .image-section img {
+        width: 100%;
+    }
+    .map-section .map-title {
+        font-size: 1.1rem;
+    }
+}

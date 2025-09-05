@@ -1,0 +1,50 @@
+body {
+  overflow-x: hidden;
+}
+
+
+.aves-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.aves-card:hover {
+    box-shadow: 0 4px 16px rgba(76,175,80,0.20);
+}
+
+.aves-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.aves-card-body {
+    padding: 18px 16px;
+}
+
+.aves-card-title {
+  font-size: 1.4em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+  font-weight: bold;
+
+  /* centrado */
+  text-align: center;
+
+  /* separación del nav */
+  margin-top: 40px; /* ajusta este valor según lo que necesites */
+}
+
+
+.aves-card-body p {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 0;
+}
