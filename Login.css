@@ -8,7 +8,7 @@ html {
 
 body {
  background: linear-gradient(to right ,#378f7b, #4b9c33);
-  color: #00661f;
+  color: #022402;
   font: 300 1rem/1.5 Helvetica Neue, sans-serif;
   margin: 0;
   min-height: 100%;
@@ -37,7 +37,7 @@ input {
   font: inherit;
 }
 input::placeholder {
-  color: #184909;
+  color: #051301;
 }
 
 .form__field {
@@ -59,10 +59,19 @@ input::placeholder {
 
 h2 {
   font-size: 2.75rem;
-  font-weight: 100;
+  font-weight: 700; /* mucho más grueso */
   margin: 0 0 1rem;
   text-transform: uppercase;
 }
+
+h3{
+  font-size: 11px;
+  font-weight: 700; /* mucho más grueso */
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+
+}
+
 
 svg {
   height: auto;
@@ -71,7 +80,7 @@ svg {
 }
 
 a {
-  color: #0c3500;
+  color: #030e00;
 }
 
 .register {
