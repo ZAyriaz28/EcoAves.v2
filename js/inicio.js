@@ -1,4 +1,4 @@
-  document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Evita el envío real del formulario
-    window.location.href = 'inicio.html'; // Redirige a inicio.html
-  });
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  window.location.href = 'inicio.html';
+});
