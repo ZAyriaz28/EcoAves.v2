@@ -492,6 +492,12 @@ p {
   margin: 0 0 10px;
 }
 
+.parrafo {
+  font-size: 1.6rem; /* más grande que lo normal */
+  line-height: 1.6;  /* opcional, para mejor lectura */
+}
+
+
 .lead {
   margin-bottom: 20px;
   font-size: 16px;

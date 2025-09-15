@@ -125,12 +125,6 @@ body, .container {
     font-family: 'Times New Roman', Times, serif;
 }
 
-
-
-
-
-
-
 /* ===== RESPONSIVIDAD ===== */
 @media (max-width: 1024px) {
     .image-section img {
@@ -180,3 +174,5 @@ body, .container {
         font-size: 1.1rem;
     }
 }
+
+
