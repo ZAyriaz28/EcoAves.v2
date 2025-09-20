@@ -6403,19 +6403,20 @@ button.close {
   left: 100%;
 }
 
-/* CSS - OPCIÓN 3 */
+
 .carousel-control img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: absolute; /* Permite posicionar la imagen con precisión */
+  top: 50%;           /* La mueve hasta la mitad vertical del contenedor */
+  left: 50%;          /* La mueve hasta la mitad horizontal del contenedor */
+  width: 35px;        /* Un buen tamaño para el ícono */
+  height: 35px;
+  
+  /* La magia del centrado perfecto: 
+     Esto empuja la imagen hacia atrás la mitad de su propio tamaño, 
+     logrando un centrado exacto. */
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-.carousel-control:hover img {
-  opacity: 1;
 }
 
 .carousel-control {
