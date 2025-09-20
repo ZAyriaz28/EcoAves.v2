@@ -1,0 +1,119 @@
+/* Estilos para el contenedor principal del calendario */
+.calendar-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.calendar-container h2 {
+    color: #2b582b; /* Verde característico */
+    margin-bottom: 20px;
+}
+
+/* Rejilla para los meses del calendario */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Estilo para cada tarjeta de mes */
+.month-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.month-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Encabezado de la tarjeta del mes */
+.month-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Contenedor de los eventos/descripciones */
+.events-container {
+    padding: 20px;
+    flex-grow: 1; /* Permite que el contenedor crezca */
+}
+
+.event-item {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.event-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.event-item p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Círculos de color */
+.event-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.season-migration::before { background-color: #3498db; }
+.season-nesting::before { background-color: #f1c40f; }
+.event-special::before { background-color: #e74c3c; }
+.event-count::before { background-color: #9b59b6; }
+.no-event::before { background-color: #bdc3c7; }
+
+/* Leyenda */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.legend .season-migration { background-color: #3498db; }
+.legend .season-nesting { background-color: #f1c40f; }
+.legend .event-special { background-color: #e74c3c; }
+.legend .event-count { background-color: #9b59b6; }
+
+.text-center {
+    text-align: center;
+    padding: 20px 0px;
+}

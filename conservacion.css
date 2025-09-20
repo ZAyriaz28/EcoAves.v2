@@ -1,0 +1,56 @@
+
+
+
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.education-header {
+    text-align: center;
+    padding: 40px 0px
+    
+}
+
+.education-header h2 {
+    color: #2b582b;
+}
+
+.panel-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.practice-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.practice-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.practice-list .glyphicon {
+    font-size: 1.8em;
+    margin-right: 15px;
+    color: #4CAF50;
+    margin-top: 5px;
+}
+
+.panel-danger ul, .panel-info ul {
+    padding-left: 20px;
+}
+
+.panel-danger ul li, .panel-info ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.text-center {
+  text-align: center;
+  padding: 20px 0px;
+}

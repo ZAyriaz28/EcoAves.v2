@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendario de Avistamiento - EcoAves</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootshape.css" rel="stylesheet">
+    <link href="calendario-aves.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="inicio.html"><span class="green">Eco</span>Aves</a>
+            </div>
+            <nav role="navigation" class="collapse navbar-collapse navbar-right">
+                <ul class="navbar-nav nav">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="Ficha-Aves.html">Galería de Aves</a></li>
+                    <li class="active"><a href="calendario-aves.html">Calendario</a></li>
+                    <li><a href="conservacion.html">Conservación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container calendar-container">
+
+        <h2 class="text-center">Temporadas y Eventos de Avistamiento</h2>
+        <p class="text-center">Planifica tu próxima aventura de observación de aves en Nicaragua.</p>
+
+
+
+
+        <div class="legend">
+            <div class="legend-item"><span class="color-box season-migration"></span> Temporada de Migración</div>
+            <div class="legend-item"><span class="color-box season-nesting"></span> Temporada de Anidación</div>
+            <div class="legend-item"><span class="color-box event-special"></span> Evento Especial</div>
+            <div class="legend-item"><span class="color-box event-count"></span> Conteo / Censo</div>
+        </div>
+
+        <a href="inicio.html" class="boton-regresar" style="display: inline-block; margin-bottom: 20px;">
+            <svg class="icono-flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Regresar
+        </a>
+
+        <div id="calendar-grid" class="calendar-grid">
+        </div>
+    </div>
+
+    <div class="footer text-center">
+        <p>&copy; 2025 <span class="green">Eco Aves</span>. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/calendario.js"></script>
+</body>
+
+</html>
