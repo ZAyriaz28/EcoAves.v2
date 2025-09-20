@@ -19,7 +19,268 @@ body {
 .thumbnail > img {
     max-width: 60%;
 }
+
+.boton-regresar {
+    display: inline-block; /* para que margin funcione bien */
+    margin-bottom: 20px;  /* espacio debajo del botón */
+}
+
 .footer {
     margin-top: 40px;
     padding: 40px 0;
+}
+
+/* Estilos base del botón de regresar */
+.boton-regresar {
+  /* Apariencia */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el ícono y el texto */
+  
+  /* Tipografía y colores */
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+  text-decoration: none;
+  
+  /* Fondo y bordes */
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 50px; /* Borde muy redondeado para forma de cápsula */
+  
+  /* Espaciado */
+  padding: 10px 22px;
+  
+  /* Animación y efectos */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+/* Estilo del ícono SVG */
+.boton-regresar .icono-flecha {
+  width: 18px;
+  height: 18px;
+  stroke: #555;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efectos al pasar el cursor (hover) */
+.boton-regresar:hover {
+  background-color: #4ec95e;
+  color: #222;
+  border-color: #ccc;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px); /* Eleva el botón */
+}
+
+/* Animación del ícono al pasar el cursor */
+.boton-regresar:hover .icono-flecha {
+  stroke: #222;
+  transform: translateX(-4px); /* Mueve la flecha hacia la izquierda */
+}
+
+/* Efecto al hacer clic (active) */
+.boton-regresar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+}
+
+
+
+/* --- Estilos para la Barra de Búsqueda y Controles --- */
+
+/* Contenedor principal para alinear los elementos */
+.controles-galeria {
+    display: flex; /* Usa Flexbox para alinear fácilmente */
+    justify-content: space-between; /* Espacio entre la barra y el botón */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 25px; /* Más espacio inferior */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea en pantallas pequeñas */
+    gap: 15px; /* Espacio entre elementos si se envuelven */
+}
+
+/* Estilo del campo de búsqueda */
+#campoBusqueda {
+    border: 2px solid #ccc; /* Borde más visible */
+    border-radius: 25px; /* Bordes redondeados para un look moderno */
+    padding: 10px 20px; /* Más espacio interior (vertical y horizontal) */
+    font-size: 16px; /* Texto ligeramente más grande */
+    outline: none; /* Quita el borde azul que aparece al hacer clic */
+    transition: all 0.3s ease-in-out; /* Animación suave para todos los cambios */
+    width: 100%; /* Ocupa todo el espacio de su columna */
+}
+
+/* Efecto al hacer clic o pasar el cursor sobre la barra (foco) */
+#campoBusqueda:focus,
+#campoBusqueda:hover {
+    border-color: #4CAF50; /* Cambia el color del borde al verde de tu marca */
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4); /* Sombra sutil a juego */
+}
+
+/* Estilo para el texto del placeholder */
+#campoBusqueda::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* --- Estilos para el Icono de Lupa --- */
+
+/* El contenedor de la búsqueda necesita una posición relativa
+   para que el icono (que será absoluto) se posicione dentro de él. */
+.search-container {
+    position: relative;
+    width: 100%; /* Opcional: ajusta el ancho según necesites */
+    max-width: 500px; /* Evita que sea demasiado ancho en pantallas grandes */
+}
+
+/* Estilo y posición del icono SVG */
+.search-icon {
+    position: absolute; /* Posición absoluta respecto al search-container */
+    top: 50%; /* Lo bajamos a la mitad del contenedor */
+    left: 15px; /* Lo separamos 15px de la izquierda */
+    transform: translateY(-50%); /* Lo centramos verticalmente a la perfección */
+    width: 20px;  /* Ancho del icono */
+    height: 20px; /* Alto del icono */
+    fill: #999; /* Color gris para el icono */
+    pointer-events: none; /* Evita que el icono intercepte los clics del ratón */
+    transition: fill 0.3s ease-in-out; /* Animación para el color */
+}
+
+/* AHORA, LA PARTE MÁS IMPORTANTE:
+   Añadimos un padding a la izquierda del campo de búsqueda para que
+   el texto no comience debajo del icono. */
+#campoBusqueda {
+    padding-left: 45px !important; /* Espacio para la lupa. Debe ser mayor que el 'left' + 'width' del icono */
+}
+
+/* Cambiamos el color de la lupa cuando el campo de búsqueda está activo (en foco) */
+#campoBusqueda:focus + .search-icon {
+    fill: #4CAF50; /* Cambia al color verde de tu marca */
+}
+
+/* --- Media Queries para Responsividad --- */
+
+/* Se aplica a pantallas con un ancho máximo de 768px (tablets y móviles) */
+@media (max-width: 768px) {
+
+    /* Ajustamos el contenedor principal de los controles */
+    .controles-galeria {
+        flex-direction: column; /* Apila la barra de búsqueda y el botón verticalmente */
+        align-items: center;    /* Centra los elementos horizontalmente */
+        gap: 20px;              /* Aumenta el espacio vertical entre la barra y el botón */
+    }
+
+    /* Nos aseguramos de que el contenedor de la búsqueda ocupe un ancho adecuado */
+    .search-container {
+        width: 100%;       /* Ocupa todo el ancho disponible */
+        max-width: 400px;  /* Le ponemos un máximo para que no se vea mal en tablets */
+    }
+
+    /* Hacemos los botones un poco más compactos en móviles */
+    .boton-regresar,
+    #botonOrdenar { /* Asegúrate de que tu botón de ordenar tenga este ID */
+        padding: 9px 20px; /* Reducimos ligeramente el espaciado interno */
+        font-size: 14px;   /* Hacemos la fuente un poco más pequeña */
+    }
+
+    /* Ajustamos también la fuente del campo de búsqueda para consistencia */
+    #campoBusqueda {
+        font-size: 15px;
+    }
+
+    /* Ajustamos el padding para la lupa en el campo de búsqueda si es necesario */
+    #campoBusqueda {
+        padding-left: 40px !important; /* Un poco menos de espacio para la lupa */
+    }
+
+    .search-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Estilos generales del contenedor */
+.contenedor-derecha {
+  text-align: left;
+  width: 100%;
+  padding: 20px 1%; /* Añade padding horizontal para pantallas grandes */
+}
+
+/* Variables de color para una paleta de verdes */
+:root {
+  --color-claro: #E8F5E9;
+  --color-medio: #A5D6A7;
+  --color-oscuro: #388E3C;
+}
+
+/* Estilos base del botón */
+.boton-regresar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-oscuro);
+  text-decoration: none;
+  background-color: var(--color-claro);
+  border: 1px solid var(--color-medio);
+  border-radius: 50px;
+  padding: 10px 22px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  
+  /* Asegura que el texto no se rompa en varias líneas */
+  white-space: nowrap; 
+}
+
+/* Estilo del ícono SVG */
+.boton-regresar .icono-flecha {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-oscuro);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efectos al pasar el cursor (hover) */
+.boton-regresar:hover {
+  background-color: var(--color-medio);
+  color: white;
+  border-color: var(--color-oscuro);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.boton-regresar:hover .icono-flecha {
+  stroke: white;
+  transform: translateX(-4px);
+}
+
+/* Efecto al hacer clic (active) */
+.boton-regresar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  background-color: var(--color-medio);
+}
+
+
+@media (max-width: 600px) {
+  .contenedor-derecha {
+    padding: 30px 5%; /* Mantiene un padding lateral */
+  }
+  
+  .boton-regresar {
+    font-size: 14px;
+    padding: 8px 18px;
+    gap: 6px;
+  }
+  
+  .boton-regresar .icono-flecha {
+    width: 16px;
+    height: 10px;
+  }
 }

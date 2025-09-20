@@ -48,3 +48,94 @@ body {
     font-size: 1em;
     margin-bottom: 0;
 }
+
+/* --- INICIA CÓDIGO RESPONSIVO PARA LAS TARJETAS --- */
+
+/* 1. Añade espacio a los lados de toda la página */
+body {
+  padding-left: 10px;   /* <--- BORRA ESTA LÍNEA */
+  padding-right: 10px;  /* <--- BORRA ESTA LÍNEA */
+  box-sizing: border-box; 
+}
+
+/* Contenedor principal de las tarjetas */
+.aves-container {
+  display: grid; /* Activamos el layout de rejilla (Grid) */
+  grid-template-columns: 1fr; /* Por defecto (móvil), mostramos una sola columna */
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 20px; /* Un poco de espacio en los bordes del contenedor */
+}
+
+/* Para pantallas de tablet (768px o más) */
+@media (min-width: 768px) {
+  .aves-container {
+    /* Cambiamos a una rejilla de 2 columnas */
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+/* Para pantallas de escritorio (1024px o más) */
+@media (min-width: 1024px) {
+  .aves-container {
+    /* Cambiamos a una rejilla de 3 columnas */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- TERMINA CÓDIGO RESPONSIVO --- */
+
+
+/* Estilos para la animación de las tarjetas */
+
+/* Le decimos al contenedor principal que los cambios en sus propiedades
+   (como la opacidad) deben durar 0.3 segundos. */
+.aves-cards-row {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Cuando el contenedor tenga la clase 'fade-out', se volverá transparente. */
+.aves-cards-row.fade-out {
+  opacity: 0;
+}
+
+/* También le damos una transición a cada tarjeta individual para que la 
+   animación de entrada sea más suave cuando se cargue la página. */
+.col-sm-6.col-md-4 {
+    transition: transform 0.3s ease-in-out;
+}
+
+#botonOrdenar {
+  /* Paleta de colores */
+  --verde-claro: #A5D6A7;
+  --verde-medio: #66BB6A;
+  --verde-oscuro: #388E3C;
+  --sombra-clara: rgba(165, 214, 167, 0.4);
+  --sombra-oscura: rgba(56, 142, 60, 0.3);
+
+  /* Apariencia */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+  background-color: white;
+  border: 2px solid var(--verde-medio);
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px var(--sombra-clara);
+  transition: all 0.3s ease;
+}
+
+/* Efectos al pasar el cursor */
+#botonOrdenar:hover {
+  background-color: var(--verde-claro);
+  border-color: var(--verde-oscuro);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--sombra-oscura);
+}
+
+#botonOrdenar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--sombra-clara);
+}

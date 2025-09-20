@@ -41,7 +41,33 @@
 
     <div class="container thumbs">
         <h2 class="aves-card-title">Galería de Aves</h2>
-        <p class="text-center">Descubre diferentes especies de aves. Haz clic en cada tarjeta para saber más.</p>
+        <p class="text-center"><strong>Descubre diferentes especies de aves. Haz clic en cada tarjeta para saber más.</strong></p>
+        <a href="inicio.html" class="boton-volver">
+<a href="inicio.html" class="boton-regresar" style="display: inline-block; margin-bottom: 20px;">
+    <svg class="icono-flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+    Regresar
+</a>
+
+
+<div class="controles-galeria">
+    <div class="search-container">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="search" id="campoBusqueda" class="form-control" placeholder="Escribe el nombre de un ave para buscar...">
+    </div>
+    <div class="col-md-4 text-right">
+        <button id="botonOrdenar" class="btn btn-primary">Ordenar de A-Z</button>
+    </div>
+</div>
+
+<div id="mensaje-no-resultados" class="text-center" style="display: none; margin: 20px 0;">
+    <h3>No se encontraron aves con ese nombre.</h3>
+</div>
+
         <div class="row aves-cards-row">
             <!-- Tarjeta 1 -->
             <div class="col-sm-6 col-md-4">
@@ -348,7 +374,7 @@
             <div class="col-sm-6 col-md-4">
                 <a href="Patagioenas Speciosa.html">
                     <div class="aves-card">
-                        <img src="images/1-Patagioenas Speciosa.jpeg" alt="Patagioenas Speciosa" class="aves-card-img">
+                        <img src="images/Patagioenas Speciosa.jpeg" alt="Patagioenas Speciosa" class="aves-card-img">
                         <div class="aves-card-body">
                             <h3 class="aves-card-title">Patagioenas Speciosa</h3>
                             <p>Acerca de: Es una paloma tropical de gran Tamaño</p>
@@ -525,6 +551,78 @@
                 </a>
             </div>
 
+             <div class="col-sm-6 col-md-4">
+                <a href="Colibrí Orejivioláceo Pardo.html">
+                    <div class="aves-card">
+                        <img src="images/Colibri delphinae.jpg" alt="Colibrí Orejivioláceo Pardo" class="aves-card-img">
+                        <div class="aves-card-body">
+                            <h3 class="aves-card-title">Colibrí Orejivioláceo Pardo</h3>
+                            <p>Acerca de: Es un residente común, con hábitos de alimentación que incluyen néctar de flores</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+             <div class="col-sm-6 col-md-4">
+                <a href="Colibrí Cabeciazul.html">
+                    <div class="aves-card">
+                        <img src="images/Klais guimeti.jpg" alt="Colibrí Cabeciazul" class="aves-card-img">
+                        <div class="aves-card-body">
+                            <h3 class="aves-card-title">Colibrí Cabeciazul</h3>
+                            <p>Acerca de: Es un residente común, con hábitos de alimentación que incluyen néctar de flores</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <a href="Zanate Nicaragüense.html">
+                    <div class="aves-card">
+                        <img src="images/Quiscalus nicaraguensis.jpg" alt="Zanate Nicaragüense" class="aves-card-img">
+                        <div class="aves-card-body">
+                            <h3 class="aves-card-title">Zanate Nicaragüense</h3>
+                            <p>Acerca de:  El Zanate Nicaragüense es un ave endémica de Nicaragua</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <a href="Zanate Grande.html">
+                    <div class="aves-card">
+                        <img src="images/Quiscalus mexicanus.jpg" alt="Zanate Grande" class="aves-card-img">
+                        <div class="aves-card-body">
+                            <h3 class="aves-card-title">Zanate Grande</h3>
+                            <p>Acerca de: El Zanate Grande es una de las aves más comunes de Nicaragua</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <a href="Guardabarranco Coroniazul.html">
+                    <div class="aves-card">
+                        <img src="images/Momotus lessonii.jpg" alt="Guardabarranco Coroniazul" class="aves-card-img">
+                        <div class="aves-card-body">
+                            <h3 class="aves-card-title">Guardabarranco Coroniazul</h3>
+                            <p>Acerca de: El Guardabarranco Coroniazul es el ave nacional de Nicaragua y uno de los símbolos más representativos del país</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <a href="Gavilán Chapulinero.html">
+                    <div class="aves-card">
+                        <img src="images/Rupornis magnirostris.jpg" alt="Gavilán Chapulinero" class="aves-card-img">
+                        <div class="aves-card-body">
+                            <h3 class="aves-card-title">Gavilán Chapulinero</h3>
+                            <p>Acerca de: El Gavilán Chapulinero es una de las rapaces más comunes de Nicaragua</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </div>
     
@@ -536,5 +634,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootshape.js"></script>
+    <script src="js/ordenar-aves.js"></script>
 </body>
 </html>
