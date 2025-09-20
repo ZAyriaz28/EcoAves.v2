@@ -7133,3 +7133,17 @@ td.visible-print {
     display: none !important;
   }
 }
+
+
+/* --- CÓDIGO CORREGIDO PARA LA FUENTE DE ÍCONOS --- */
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  /* La ruta correcta le dice al CSS que "suba un nivel" y luego entre a la carpeta 'fonts' */
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/glyphicons-halflings-regular.woff') format('woff'), 
+       url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
+       url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
