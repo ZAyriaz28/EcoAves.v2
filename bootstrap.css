@@ -6403,16 +6403,20 @@ button.close {
   left: 100%;
 }
 
-/* Estilos para centrar las nuevas flechas SVG en el carrusel */
+/* CSS - OPCIÓN 3 */
 .carousel-control img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
-
+.carousel-control:hover img {
+  opacity: 1;
+}
 
 .carousel-control {
   position: absolute;
