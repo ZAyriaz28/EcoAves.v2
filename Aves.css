@@ -176,3 +176,24 @@ body, .container {
 }
 
 
+
+/* ===== ESTILOS PARA MÓVILES (VISTA CELULAR) ===== */
+@media (max-width: 768px) {
+    .card {
+        /* Cambia la dirección para que la imagen se ponga encima del texto */
+        flex-direction: column;
+        align-items: center; /* Centra la imagen y el bloque de texto en la tarjeta */
+    }
+
+    .info-section {
+        /* La regla clave: alinea todo el texto a la izquierda dentro de esta sección */
+        text-align: left;
+        width: 100%; /* Asegura que la sección de info ocupe todo el ancho */
+        padding: 20px; /* Mantiene un espacio interno agradable */
+    }
+
+    /* Opcional pero recomendado: Alinear también el título y leyenda del mapa */
+    .map-section, .leyenda-title {
+        text-align: left;
+    }
+}
