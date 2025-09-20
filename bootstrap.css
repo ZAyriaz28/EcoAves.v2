@@ -6409,8 +6409,8 @@ button.close {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30px;  /* Ancho del ícono */
-  height: 30px; /* Alto del ícono */
+  width: 30px;
+  height: 30px;
 }
 
 
