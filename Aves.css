@@ -200,7 +200,7 @@ body, .container {
 
 /* 1. Añade espacio a los lados de toda la página */
 body {
-  padding-left: 5px;   /* <--- BORRA ESTA LÍNEA */
-  padding-right: 5px;  /* <--- BORRA ESTA LÍNEA */
+  padding-left: 10px;   /* <--- BORRA ESTA LÍNEA */
+  padding-right: 10px;  /* <--- BORRA ESTA LÍNEA */
   box-sizing: border-box; 
 }
