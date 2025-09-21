@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reservas Naturales para Aviturismo en Nicaragua - EcoAves</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre las mejores reservas naturales en Nicaragua para el avistamiento de aves y ecoturismo. Información actualizada, mapas y guías.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+  <link href="bootstrap.css" rel="stylesheet">
+  <link href="bootshape.css" rel="stylesheet">
+  <style>
+    body {
+        padding-top: 70px;
+    }
+    .page-header h1 {
+        text-align: center;
+        color: #2b582b;
+    }
+    .page-header .lead {
+        text-align: center;
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    /* Contenedor del mapa con estilo */
+    .map-container {
+        padding: 8px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+    #map {
+        height: 450px;
+        width: 100%;
+        border-radius: 8px; /* Bordes redondeados internos */
+    }
+    .filtros-container {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    .reserva-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    .reserva-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .reserva-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .reserva-card-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .reserva-card-body p {
+        flex-grow: 1;
+    }
+    .reserva-card h3 {
+        margin-top: 0;
+        color: #2b582b;
+    }
+    .reserva-card .list-inline li {
+        font-size: 0.9em;
+        color: #777;
+    }
+    .footer {
+        margin-top: 40px;
+        padding: 40px 0;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+
+<body>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="inicio.html"><span class="green">Eco</span>Aves</a>
+      </div>
+      <nav role="navigation" class="collapse navbar-collapse navbar-right">
+        <ul class="navbar-nav nav">
+          <li><a href="inicio.html">Inicio</a></li>
+          <li><a href="Ficha-Aves.html">Galería de Aves</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="conservacion.html">Conservación</a></li>
+          <li class="active"><a href="reservas.html">Reservas Naturales</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Reservas Naturales de Nicaragua</h1>
+      <p class="lead">Explora los santuarios de vida silvestre del país, ideales para el aviturismo y el ecoturismo.</p>
+    </div>
+
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+    
+    <div class="row filtros-container">
+        <div class="col-md-6">
+            <h4>Filtrar por Actividad</h4>
+            <div class="form-group">
+                <select id="filtroActividad" class="form-control">
+                    <option value="todas">Todas las Actividades</option>
+                    <option value="aviturismo">Aviturismo</option>
+                    <option value="volcanes">Senderismo en Volcanes</option>
+                    <option value="bosque-nuboso">Bosque Nuboso</option>
+                    <option value="humedales">Humedales y Manglares</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Buscar por Nombre</h4>
+            <div class="form-group">
+                <input type="text" id="campoBusqueda" class="form-control" placeholder="Ej: Indio Maíz...">
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="listaReservas">
+      <div class="col-md-4 col-sm-6" data-actividades="aviturismo,humedales">
+        <div class="reserva-card">
+          <img src="images/Reserva Biológica Indio Maíz.jpeg" alt="Reserva Biológica Indio Maíz">
+          <div class="reserva-card-body">
+            <h3>Reserva Biológica Indio Maíz</h3>
+            <p>Considerada el "Amazonas de Centroamérica", es una de las selvas tropicales mejor conservadas y un paraíso para el aviturismo, hogar de especies raras como el águila arpía.</p>
+            <hr>
+            <ul class="list-inline">
+              <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+              <li><span class="glyphicon glyphicon-leaf"></span> Senderismo</li>
+              <li><span class="glyphicon glyphicon-tint"></span> Kayak</li>
+            </ul>
+            <a href="https://reservaindiomaiz.org"  target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6" data-actividades="aviturismo,volcanes,bosque-nuboso">
+        <div class="reserva-card">
+          <img src="images/Reserva Natural Volcán Mombacho.jpg" alt="Reserva Natural Volcán Mombacho">
+          <div class="reserva-card-body">
+            <h3>Reserva Natural Volcán Mombacho</h3>
+            <p>Este volcán inactivo cerca de Granada alberga un exuberante bosque nuboso con senderos bien mantenidos, ideal para observar aves endémicas y disfrutar de vistas panorámicas.</p>
+            <hr>
+            <ul class="list-inline">
+              <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+              <li><span class="glyphicon glyphicon-tree-conifer"></span> Bosque Nuboso</li>
+            </ul>
+            <a href="https://es.wikipedia.org/wiki/Parque_nacional_Volcán_Mombacho" target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6" data-actividades="aviturismo,humedales">
+        <div class="reserva-card">
+          <img src="images/Reserva Natural Isla Juan Venado.jpg" alt="Reserva Natural Isla Juan Venado">
+          <div class="reserva-card-body">
+            <h3>Reserva Natural Isla Juan Venado</h3>
+            <p>Una isla de barrera en la costa del Pacífico, crucial para la anidación de tortugas marinas. Sus manglares son un lugar excelente para observar aves acuáticas y playeras.</p>
+            <hr>
+            <ul class="list-inline">
+                <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+                <li><span class="glyphicon glyphicon-tint"></span> Manglares</li>
+            </ul>
+            <a href="https://www.visitleon.info/reserva-natural-isla-juan-venado.html" target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4 col-sm-6" data-actividades="volcanes">
+        <div class="reserva-card">
+          <img src="images/Parque Nacional Volcán Masaya.jpg" alt="Parque Nacional Volcán Masaya">
+          <div class="reserva-card-body">
+            <h3>Parque Nacional Volcán Masaya</h3>
+            <p>Un volcán activo con un paisaje único y aves adaptadas a él. Es el primer y más grande parque nacional de Nicaragua.</p>
+            <hr>
+            <ul class="list-inline">
+              <li><span class="glyphicon glyphicon-fire"></span> Volcanes</li>
+              <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+            </ul>
+            <a href="http://www.pnvolcanmasaya.gob.ni" target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4 col-sm-6" data-actividades="aviturismo,humedales">
+        <div class="reserva-card">
+          <img src="images/Refugio de Vida Silvestre Los Guatuzos.jpg" alt="Refugio de Vida Silvestre Los Guatuzos">
+          <div class="reserva-card-body">
+            <h3>Refugio de Vida Silvestre Los Guatuzos</h3>
+            <p>Un vasto humedal en la ribera del Lago Cocibolca, reconocido como sitio RAMSAR y hogar de una increíble diversidad de aves acuáticas.</p>
+            <hr>
+            <ul class="list-inline">
+              <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+              <li><span class="glyphicon glyphicon-tint"></span> Humedales</li>
+            </ul>
+            <a href="https://centrolosguatuzos.com" target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4 col-sm-6" data-actividades="aviturismo,bosque-nuboso">
+        <div class="reserva-card">
+          <img src="images/Reserva de Biósfera de Bosawás.jpg" alt="Reserva de Biósfera de Bosawás">
+          <div class="reserva-card-body">
+            <h3>Reserva de Biósfera de Bosawás</h3>
+            <p>El corazón del Corredor Biológico Mesoamericano y el área protegida más grande de Centroamérica, con una biodiversidad inmensa.</p>
+            <hr>
+            <ul class="list-inline">
+               <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+              <li><span class="glyphicon glyphicon-tree-conifer"></span> Bosque Nuboso</li>
+            </ul>
+            <a href="https://www.mapanicaragua.com/reserva-de-biosfera-bosawas" target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6" data-actividades="aviturismo,bosque-nuboso">
+        <div class="reserva-card">
+          <img src="images/Reserva Natural Cerro Apante.jpg" alt="Reserva Natural Cerro Apante">
+          <div class="reserva-card-body">
+            <h3>Reserva Natural Cerro Apante</h3>
+            <p>Macizo montañoso con bosque nuboso y cafetales de altura cerca de Matagalpa, un excelente lugar para el aviturismo de montaña.</p>
+            <hr>
+            <ul class="list-inline">
+              <li><span class="glyphicon glyphicon-eye-open"></span> Aviturismo</li>
+              <li><span class="glyphicon glyphicon-tree-conifer"></span> Bosque Nuboso</li>
+            </ul>
+            <a href="https://www.mapanicaragua.com/reserva-natural-cerro-apante" target="_blank" class="btn btn-success btn-sm">Leer Más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer text-center">
+    <p>&copy; 2025 <span class="green">EcoAves</span>. Todos los derechos reservados.</p>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="js/reservas.js"></script>
+
+</body>
+</html>
