@@ -49,6 +49,13 @@ document.addEventListener('DOMContentLoaded', function() {
             desc: "Macizo montañoso con bosque nuboso y cafetales de altura cerca de Matagalpa.",
             img: "images/Reserva Natural Cerro Apante.jpg",
             actividades: ["aviturismo", "bosque-nuboso"]
+        },
+         {
+            nombre: "Reserva Natural Wawashang",
+            lat: 12.67, lng: -83.91,
+            desc: "Amplia reserva tropical en la Costa Caribe Sur de Nicaragua, con selvas, ríos y manglares que albergan gran biodiversidad",
+            img: "images/Reserva natural wawashang.jpg",
+            actividades: ["aviturismo", "bosque-nuboso"]
         }
     ];
 
@@ -73,9 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- CAMBIOS EN EL ÍCONO ---
     var birdIcon = L.icon({
         iconUrl: 'favicon/android-chrome-192x192.png', // <-- CAMBIO: Usamos una imagen más grande y de mejor calidad
-        iconSize: [42, 42],                            // <-- CAMBIO: Ícono más grande (42x42 pixeles)
-        iconAnchor: [21, 42],                          // <-- CAMBIO: Ajustamos el anclaje para el nuevo tamaño
-        popupAnchor: [0, -42]                          // <-- CAMBIO: Ajustamos el anclaje del pop-up
+        iconSize: [70, 70],                            // <-- CAMBIO: Ícono más grande (42x42 pixeles)
+        iconAnchor: [24, 70],                          // <-- CAMBIO: Ajustamos el anclaje para el nuevo tamaño
+        popupAnchor: [0, -70]                          // <-- CAMBIO: Ajustamos el anclaje del pop-up
     });
 
     reservas.forEach(function(reserva) {
