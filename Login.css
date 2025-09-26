@@ -8,113 +8,131 @@ html {
 
 body {
   background: linear-gradient(135deg, #1b3b2f, #5d8a6c, #308337, #246e34);
-  color: #0a1a0f; /* Un verde muy oscuro, fácil de leer */
+  color: #0a1a0f;
   font: 300 1rem/1.5 "Helvetica Neue", sans-serif;
   margin: 0;
   min-height: 100%;
-  background-attachment: fixed; /* Mantiene el fondo estable en móviles y escritorio */
-}
-
-/* Para mejorar visibilidad en móviles */
-@media (max-width: 768px) {
-  body {
-  background: linear-gradient(135deg, #1b3b2f, #5d8a6c, #308337, #246e34);
-  }
+  background-attachment: fixed;
 }
 
 .align {
   align-items: center;
   display: flex;
-  flex-direction: row;
-}
-.align__item--start {
-  align-self: flex-start;
-}
-.align__item--end {
-  align-self: flex-end;
-}
-
-.site__logo {
-    width: 112px;   /* aumenta el ancho */
-    height: auto;   /* mantiene las proporciones */
-}
-
-
-input {
-  border: 0;
-  font: inherit;
-}
-input::placeholder {
-  color: #0000009a;
-}
-
-.form__field {
-  margin-bottom: 1rem;
-}
-.form input {
-  outline: 0;
-  padding: 0.5rem 1rem;
-}
-.form input[type=email], .form input[type=password] {
-  width: 100%;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
 }
 
 .grid {
-  margin: 0 auto;
-  max-width: 25rem;
-  width: 100%;
-}
-
-h2 {
-  font-size: 2.75rem;
-  font-weight: 600;
-  margin: 0 0 1rem;
-  text-transform: uppercase;
-}
-
-h3{
-  font-size: 11px;
-  font-weight: 700;
-  margin: 0 0 1rem;
-  text-transform: uppercase;
-
-}
-
-svg {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-a {
-  color: #030e00;
+  width: 90%;
+  max-width: 400px;
 }
 
 .register {
-  box-shadow: 0 0 250px #000;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-.register input {
-  border: 1px solid #242c37;
-  border-radius: 999px;
-  background-color: transparent;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-.register input[type=email], .register input[type=password] {
-  background-repeat: no-repeat;
-  background-size: 1.5rem;
-  background-position: 1rem 50%;
+
+.site__logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
 }
-.register input[type=email] {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#242c37"><path d="M256.017 273.436l-205.17-170.029h410.904l-205.734 170.029zm-.034 55.462l-205.983-170.654v250.349h412v-249.94l-206.017 170.245z"/></svg>');
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  color: #333;
 }
-.register input[type=password] {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#242c37"><path d="M195.334 223.333h-50v-62.666c0-61.022 49.645-110.667 110.666-110.667 61.022 0 110.667 49.645 110.667 110.667v62.666h-50v-62.666c0-33.452-27.215-60.667-60.667-60.667-33.451 0-60.666 27.215-60.666 60.667v62.666zm208.666 30v208.667h-296v-208.667h296zm-121 87.667c0-14.912-12.088-27-27-27s-27 12.088-27 27c0 7.811 3.317 14.844 8.619 19.773 4.385 4.075 6.881 9.8 6.881 15.785v22.942h23v-22.941c0-5.989 2.494-11.708 6.881-15.785 5.302-4.93 8.619-11.963 8.619-19.774z"/></svg>');
+
+p {
+  color: #666;
+  margin-bottom: 1.5rem;
 }
-.register input[type=submit] {
-  background: linear-gradient(135deg, #1b3b2f, #5d8a6c, #308337, #246e34);
-  color: #032c03;
-  margin-bottom: 6rem;
+
+.form__field {
+  margin-bottom: 1.25rem; /* Un poco más de espacio vertical */
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
   width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form input[type="password"]:focus {
+    border-color: #246e34;
+    box-shadow: 0 0 5px rgba(36, 110, 52, 0.5);
+}
+
+.form input[type="submit"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #1b3b2f, #5d8a6c, #308337, #246e34);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form input[type="submit"]:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  color: #246e34;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- ESTILOS RESPONSIVOS DEFINITIVOS PARA MÓVILES --- */
+@media (max-width: 480px) {
+  .grid {
+    width: 100%; /* El formulario ocupa todo el ancho */
+  }
+
+  .register {
+    padding: 2rem 1.5rem; /* Ajustamos el padding */
+  }
+  
+  .site__logo {
+      width: 130px; /* Logo más grande */
+  }
+
+  h2 {
+    font-size: 2rem; /* Título grande y claro */
+  }
+  
+  .form input[type="text"],
+  .form input[type="email"],
+  .form input[type="password"],
+  .form input[type="submit"] {
+    padding: 1.1rem; /* Campos y botón más altos y fáciles de tocar */
+    font-size: 1.1rem; /* Letra más grande dentro de los campos */
+  }
+
+  p {
+    font-size: 1.1rem; /* Párrafo más grande */
+  }
 }
