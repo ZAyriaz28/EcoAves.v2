@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <title>Ficha de Ave</title>
+    <link rel="stylesheet" href="bootshape.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="Aves.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="inicio.html"><span class="green">Eco</span>Aves</a>
+            </div>
+            <nav role="navigation" class="collapse navbar-collapse navbar-right">
+                <ul class="navbar-nav nav">
+                    <li class="active"><a href="inicio.html">Inicio</a></li>
+                    <li><a href="Ficha-Aves.html">Galeria De Aves</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="contenedor-derecha">
+        <a href="Ficha-Aves.html" class="boton-regresar">
+            <svg class="icono-flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Regresar
+        </a>
+    </div>
+
+    <!-- Tarjeta de Ave -->
+    <div class="card">
+        <div class="image-section">
+            <img src="" alt="Cargando..." class="img-responsive" id="imagen-ave">
+        </div>
+        <div class="info-section">
+            <h1 id="nombre-comun">Cargando...</h1>
+            <ul class="taxonomy" id="lista-taxonomia"></ul>
+            <li><strong>Reino:</strong> Animalia</li>
+            <li><strong>Filo:</strong> Chordata</li>
+            <li><strong>Clase:</strong> Aves</li>
+            <li><strong>Orden:</strong> Falconiformes</li>
+            <li><strong>Familia:</strong> Falconidae</li>
+            <li><strong>Género:</strong> Falco</li>
+            <li><strong>Especie:</strong> Falco peregrinus</li>
+            </ul>
+            <div class="stats">
+                <strong>Tamaño de la Población:</strong> <span id="tamano-poblacion"></span>
+                <strong>Esperanza de vida:</strong> <span id="esperanza-vida"></span>
+                <strong>Velocidad máxima:</strong> <span id="velocidad-maxima"></span>
+                <strong>Peso:</strong> <span id="peso"></span>
+                <strong>Longitud:</strong> <span id="longitud"></span>
+                <strong>Envergadura:</strong> <span id="envergadura"></span>
+            </div>
+            <p class="description" id="descripcion-ave"></p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DEL MAPA -->
+    <div class="map-section">
+        <h2 class="map-title">Mapa del Hábitat del Halcón Peregrino</h2>
+        <div class="contenedor-leyenda">
+            <h2 class="leyenda-title">Leyenda</h2>
+            <h3 class="leyenda">🟨🢂Zona agricula</h3>
+            <h3 class="leyenda">🟧🢂Vegetacion Herbacea</h3>
+        </div>
+        <img src="" alt="Mapa de distribución" class="img-responsive" id="mapa-ave">
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootshape.js"></script>
+
+    <script src="js/cargar-ficha.js"></script>
+
+</body>
+
+
+
+</html>
