@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de Guías Locales - EcoAves</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootshape.css" rel="stylesheet">
+    <link href="reservas-guias.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="inicio.html"><span class="green">Eco</span>Aves</a>
+            </div>
+            <nav role="navigation" class="collapse navbar-collapse navbar-right">
+                <ul class="navbar-nav nav">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="Ficha-Aves.html">Galería de Aves</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="conservacion.html">Conservación</a></li>
+                    <li><a href="reservas.html">Reservas Naturales</a></li>
+                    <li class="active"><a href="reservas-guias.html">Reservar Guía</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container main-container">
+        <div class="page-header">
+            <h1>Reserva tu Guía de Aviturismo</h1>
+            <p class="lead">Completa el formulario para asegurar tu experiencia con un guía local certificado.</p>
+        </div>
+
+        <div class="form-container">
+            <form id="reservaForm" class="form-horizontal">
+                <div class="form-group">
+                    <label for="reservaSelect" class="col-sm-2 control-label">Reserva Natural</label>
+                    <div class="col-sm-10">
+                        <select id="reservaSelect" class="form-control">
+                            <option value="">Selecciona una reserva...</option>
+                            <option value="indio-maiz">Reserva Biológica Indio Maíz</option>
+                            <option value="mombacho">Reserva Natural Volcán Mombacho</option>
+                            <option value="juan-venado">Reserva Natural Isla Juan Venado</option>
+                            <option value="masaya">Parque Nacional Volcán Masaya</option>
+                            <option value="los-guatuzos">Refugio de Vida Silvestre Los Guatuzos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="guiaSelect" class="col-sm-2 control-label">Guía Certificado</label>
+                    <div class="col-sm-10">
+                        <select id="guiaSelect" class="form-control">
+                            <option value="">Selecciona un guía...</option>
+                            <option value="juan-perez">Juan Pérez (Especialista en Mombacho)</option>
+                            <option value="maria-gomez">María Gómez (Experta en Indio Maíz)</option>
+                            <option value="carlos-lopez">Carlos López (Conocedor de aves acuáticas)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha" class="col-sm-2 control-label">Fecha</label>
+                    <div class="col-sm-4">
+                        <input type="date" id="fecha" class="form-control">
+                    </div>
+                    <label for="hora" class="col-sm-2 control-label">Hora</label>
+                    <div class="col-sm-4">
+                        <input type="time" id="hora" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="participantes" class="col-sm-2 control-label">Nº de Personas</label>
+                    <div class="col-sm-10">
+                        <input type="number" id="participantes" class="form-control" min="1" max="10" placeholder="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Servicios Adicionales</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="servicios" value="binoculares"> Alquiler de Binoculares ($5)</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="servicios" value="transporte"> Transporte Privado ($30)</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="servicios" value="almuerzo"> Almuerzo Típico ($10)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label for="nombre" class="col-sm-2 control-label">Nombre Completo</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="nombre" class="form-control" placeholder="Tu nombre y apellido">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Correo Electrónico</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email" class="form-control" placeholder="tu-correo@ejemplo.com">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success btn-lg">Confirmar Reserva</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer text-center">
+        <p>&copy; 2025 <span class="green">EcoAves</span>. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="reservas-guias.js"></script>
+</body>
+
+</html>

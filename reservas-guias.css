@@ -1,0 +1,160 @@
+/* Estilos generales del contenedor */
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.page-header h1 {
+    text-align: center;
+    color: #2b582b;
+    font-weight: bold;
+}
+
+.page-header .lead {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e7e7e7;
+    overflow: hidden; /* Importante para las animaciones */
+}
+
+/* === Animaciones y Estilos de Campos === */
+
+.form-group {
+    margin-bottom: 20px;
+    opacity: 0; /* Inicia oculto para la animación */
+    transform: translateY(20px); /* Ligeramente desplazado hacia abajo */
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Animación de aparición */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.control-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.075), 0 0 8px rgba(76, 175, 80, 0.6);
+}
+
+/* Estilo para el contenedor del campo con validación */
+.input-wrapper {
+    position: relative;
+}
+
+/* Icono de validación (check) */
+.validation-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) scale(0); /* Inicia invisible y pequeño */
+    color: #4CAF50;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Muestra el icono cuando el campo es válido */
+.form-group.is-valid .validation-icon {
+    transform: translateY(-50%) scale(1);
+}
+
+.form-group.is-valid .form-control {
+    border-color: #4CAF50;
+}
+
+
+/* Estilos para checkboxes */
+.checkbox label {
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Botón de envío */
+.btn-success {
+    background-color: #4CAF50;
+    border-color: #45a049;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* === Estilos Responsivos === */
+
+@media (max-width: 767px) {
+    .form-container {
+        padding: 20px;
+    }
+    
+    .form-horizontal .control-label {
+        text-align: left;
+        padding-top: 0;
+        margin-bottom: 8px;
+    }
+    
+    .col-sm-offset-2 {
+        margin-left: 0;
+    }
+
+    .form-group .col-sm-4,
+    .form-group .col-sm-10 {
+        width: 100%;
+    }
+
+    .form-group .col-sm-4:first-of-type {
+        margin-bottom: 20px;
+    }
+
+    .form-group label[for="hora"] {
+        margin-top: 10px;
+    }
+}
