@@ -1,0 +1,26 @@
+{
+    "goldfinch": {
+        "nombre_comun": "Jilguero",
+        "nombre_cientifico": "Carduelis carduelis",
+        "descripcion": "Un ave pequeña y colorida, conocida por su cabeza roja, blanca y negra y su alegre canto. Se alimenta principalmente de semillas de cardo.",
+        "imagen_referencia": "images/Jilguero.jpg" 
+    },
+    "great kiskadee": {
+        "nombre_comun": "Güis Común",
+        "nombre_cientifico": "Pitangus sulphuratus",
+        "descripcion": "Un ave mediana y ruidosa con un vientre amarillo brillante, espalda parda y una distintiva máscara negra y blanca. Es omnívoro y muy adaptable.",
+        "imagen_referencia": "images/Guis_Comun.jpg"
+    },
+    "great egret": {
+        "nombre_comun": "Garza Grande",
+        "nombre_cientifico": "Ardea alba",
+        "descripcion": "Una garza grande y completamente blanca con un pico amarillo y patas negras. Se encuentra en humedales, donde caza peces y otros animales pequeños.",
+        "imagen_referencia": "images/Garza_Grande.jpg"
+    },
+    "rock dove": {
+        "nombre_comun": "Paloma Doméstica",
+        "nombre_cientifico": "Columba livia",
+        "descripcion": "Conocida comúnmente como paloma, es un ave de plumaje predominantemente gris azulado con cuello iridiscente. Se ha adaptado excelentemente a los entornos urbanos.",
+        "imagen_referencia": "images/Columba livia.jpeg"
+    }
+}
