@@ -1,0 +1,24 @@
+{
+    "aves": [
+        { "nombreLocal": "tinamú grande", "keywords": ["tinamou"] },
+        { "nombreLocal": "tinamú chico", "keywords": ["tinamou"] },
+        { "nombreLocal": "tinamú pizarroso", "keywords": ["tinamou"] },
+        { "nombreLocal": "pato calvo", "keywords": ["muscovy duck", "duck"] },
+        { "nombreLocal": "pato cuchara", "keywords": ["shoveler", "duck"] },
+        { "nombreLocal": "pato cabeciverde", "keywords": ["mallard", "duck"] },
+        { "nombreLocal": "pato rabudo", "keywords": ["pintail", "duck"] },
+        { "nombreLocal": "cerceta común", "keywords": ["teal", "duck"] },
+        { "nombreLocal": "cerceta castaña", "keywords": ["cinnamon teal", "teal"] },
+        { "nombreLocal": "cerceta aliazul", "keywords": ["blue-winged teal", "teal"] },
+        { "nombreLocal": "porrón mayor", "keywords": ["scaup", "pochard"] },
+        { "nombreLocal": "porrón picudo", "keywords": ["canvasback", "pochard"] },
+        { "nombreLocal": "porrón collarejo", "keywords": ["ring-necked duck", "pochard"] },
+        { "nombreLocal": "porrón cabecirrojo", "keywords": ["redhead", "pochard"] },
+        { "nombreLocal": "paloma doméstica", "keywords": ["rock dove", "pigeon"] },
+        { "nombreLocal": "zampullín cuellinegro", "keywords": ["eared grebe", "black-necked grebe"] },
+        { "nombreLocal": "gavilán chapulinero", "keywords": ["roadside hawk", "hawk"] },
+        { "nombreLocal": "guardabarranco coroniazul", "keywords": ["turquoise-browed motmot", "motmot"] },
+        { "nombreLocal": "zanate grande", "keywords": ["great-tailed grackle", "grackle", "jay"] },
+        { "nombreLocal": "zanate nicaragüense", "keywords": ["nicaraguan grackle", "grackle", "jay"] }
+    ]
+}

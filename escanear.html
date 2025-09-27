@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escanear Ave - EcoAves</title>
+    <title>Identificar Ave - EcoAves</title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="escanear.css">
 </head>
@@ -13,7 +13,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="inicio.html">EcoAves</a>
             </div>
@@ -33,36 +35,51 @@
     <div class="container">
         <div class="jumbotron text-center">
             <h1>Identificación de Aves por IA</h1>
-            <p>Toma una foto a un ave para que nuestra IA la identifique en tiempo real.</p>
+            <p>Usa tu cámara o sube una foto para que nuestra IA la identifique.</p>
         </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="camera-container">
-                    <video id="camera-feed" autoplay playsinline></video>
-                    <canvas id="canvas" style="display:none;"></canvas>
-                    <img id="captured-image" src="#" alt="Foto Capturada" class="img-responsive" style="display: none;">
+                
+                <div id="initial-section">
+                    <div class="camera-container">
+                        <video id="camera-feed" autoplay playsinline></video>
+                    </div>
+                    <button id="capture-btn" class="btn btn-primary btn-lg btn-block" disabled>Cargando IA...</button>
+                    
+                    <hr>
+                    <p class="text-center">O si prefieres:</p>
+                    
+                    <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+                    <label for="image-upload-input" class="btn btn-info btn-lg btn-block">
+                        <span class="glyphicon glyphicon-upload"></span> Subir una imagen de tu galería
+                    </label>
                 </div>
-                <button id="capture-btn" class="btn btn-primary btn-lg btn-block" disabled>Cargando IA...</button>
-                <button id="rescan-btn" class="btn btn-default btn-lg btn-block" style="display:none;">Escanear de Nuevo</button>
+
+                <div id="preview-section" style="display: none;">
+                    <div class="camera-container">
+                         <img id="preview-image" src="#" alt="Vista previa de la imagen" class="img-responsive">
+                    </div>
+                    <button id="analyze-btn" class="btn btn-success btn-lg btn-block">Analizar Imagen</button>
+                    <button id="rescan-btn" class="btn btn-default btn-lg btn-block">Volver a empezar</button>
+                </div>
+
+                <canvas id="canvas" style="display:none;"></canvas>
             </div>
         </div>
 
         <div id="results-container" class="row" style="display:none;">
             <div class="col-md-8 col-md-offset-2">
-                <h2 id="results-title">Analizando...</h2>
-                <div id="bird-info" class="panel panel-default">
-                    </div>
+                <h2 id="results-title"></h2>
+                <div id="bird-info" class="panel panel-default"></div>
             </div>
         </div>
     </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
-
     <script src="js/escanear.js"></script>
 </body>
 </html>
