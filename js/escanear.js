@@ -1,112 +1,131 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const cameraFeed = document.getElementById('camera-feed');
+    const capturedImage = document.getElementById('captured-image');
     const captureBtn = document.getElementById('capture-btn');
+    const rescanBtn = document.getElementById('rescan-btn');
     const canvas = document.getElementById('canvas');
     const resultsContainer = document.getElementById('results-container');
-    const birdName = document.getElementById('bird-name');
-    const scientificName = document.getElementById('scientific-name');
-    const birdDescription = document.getElementById('bird-description');
-    const birdImage = document.getElementById('bird-image');
+    const resultsTitle = document.getElementById('results-title');
+    const birdInfoPanel = document.getElementById('bird-info');
 
-    let model = null;
-    let avesData = null;
+    let stream = null;
+    let model = null; // Variable para guardar el modelo de IA
 
-    // --- 1. Cargar el modelo de IA y los datos de las aves ---
-    async function loadResources() {
+    // --- 1. CARGAR EL MODELO DE IA ---
+    async function loadModel() {
+        console.log("Cargando modelo de IA...");
         try {
-            captureBtn.textContent = 'Cargando IA...';
-            captureBtn.disabled = true;
-            model = await mobilenet.load(); // Carga el modelo de IA
-            const response = await fetch('aves_data.json'); // Carga nuestro "diccionario" de aves
-            avesData = await response.json();
-            captureBtn.textContent = 'Capturar y Identificar';
+            // MobileNet es un modelo eficiente y potente para clasificación de imágenes
+            model = await mobilenet.load();
+            console.log("¡Modelo de IA cargado exitosamente!");
+            captureBtn.textContent = 'Identificar Ave';
             captureBtn.disabled = false;
-            console.log("Modelo y datos cargados exitosamente.");
         } catch (err) {
-            console.error("Error al cargar los recursos:", err);
-            alert("No se pudo cargar el modelo de IA. Revisa la conexión a internet.");
+            console.error("Error al cargar el modelo:", err);
+            alert("No se pudo cargar la IA. Revisa tu conexión a internet.");
         }
     }
 
-    // --- 2. Iniciar la cámara ---
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-            .then(stream => {
-                cameraFeed.srcObject = stream;
-                cameraFeed.play();
-            })
-            .catch(err => {
-                console.error("Error al acceder a la cámara: ", err);
-                alert('No se pudo acceder a la cámara. Asegúrate de dar los permisos necesarios.');
-            });
+    // --- 2. INICIAR Y DETENER LA CÁMARA ---
+    async function startCamera() {
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+            cameraFeed.srcObject = stream;
+            cameraFeed.style.display = 'block';
+            capturedImage.style.display = 'none';
+            if (model) { // Solo habilita el botón si la IA ya cargó
+                captureBtn.style.display = 'block';
+            }
+            rescanBtn.style.display = 'none';
+            resultsContainer.style.display = 'none';
+        } catch (err) {
+            console.error("Error al acceder a la cámara:", err);
+            alert('No se pudo acceder a la cámara. Asegúrate de dar los permisos y usar Live Server.');
+        }
     }
 
-    // --- 3. Capturar imagen y predecir ---
+    function stopCamera() {
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+        }
+    }
+
+    // --- 3. LÓGICA DE CAPTURA Y ANÁLISIS REAL ---
     captureBtn.addEventListener('click', async () => {
         if (!model) {
-            alert("El modelo de IA no ha terminado de cargar. Por favor, espera.");
+            alert("La IA aún no ha cargado. Por favor espera.");
             return;
         }
 
-        // Dibujar el frame del video en el canvas
+        // Captura la imagen
         const context = canvas.getContext('2d');
         canvas.width = cameraFeed.videoWidth;
         canvas.height = cameraFeed.videoHeight;
         context.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
+        const imageDataUrl = canvas.toDataURL('image/jpeg');
+        capturedImage.src = imageDataUrl;
+        
+        // Actualiza la UI
+        capturedImage.style.display = 'block';
+        stopCamera();
+        cameraFeed.style.display = 'none';
+        captureBtn.style.display = 'none';
+        rescanBtn.style.display = 'block';
+        resultsContainer.style.display = 'block';
+        resultsTitle.textContent = 'Analizando con IA...';
+        birdInfoPanel.innerHTML = '<div class="panel-body text-center"><p>Procesando la imagen...</p></div>';
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
 
-        captureBtn.textContent = 'Analizando...';
-        captureBtn.disabled = true;
-
-        // Realizar la predicción con el modelo
-        const predictions = await model.classify(canvas);
-        console.log('Predicciones:', predictions);
-
-        // Buscar la mejor predicción en nuestra base de datos
-        let aveEncontrada = null;
-        for (const prediction of predictions) {
-            // El nombre de la clase puede tener sinónimos, ej: "rock dove, rock pigeon"
-            const posiblesNombres = prediction.className.split(', ').map(name => name.toLowerCase());
-            for (const nombre of posiblesNombres) {
-                if (avesData[nombre]) {
-                    aveEncontrada = avesData[nombre];
-                    break;
-                }
-            }
-            if (aveEncontrada) break;
+        // --- 4. EJECUCIÓN REAL DE LA IA ---
+        // Aquí no hay simulación. Usamos el modelo cargado para clasificar la imagen del canvas.
+        try {
+            const predictions = await model.classify(canvas);
+            console.log('Predicciones de la IA:', predictions);
+            displayResults(predictions); // Muestra los resultados reales
+        } catch (err) {
+            console.error("Error durante la clasificación:", err);
+            alert("Ocurrió un error al analizar la imagen.");
         }
-
-        if (aveEncontrada) {
-            displayResults(aveEncontrada);
-        } else {
-            // Si no se encuentra en nuestra base de datos, mostramos la mejor predicción del modelo
-            const mejorPrediccion = predictions[0].className;
-            displayNotFound(mejorPrediccion);
-        }
-
-        captureBtn.textContent = 'Capturar y Identificar';
-        captureBtn.disabled = false;
     });
 
-    // --- 4. Mostrar los resultados ---
-    function displayResults(data) {
-        birdName.textContent = data.nombre_comun;
-        scientificName.textContent = data.nombre_cientifico;
-        birdDescription.textContent = data.descripcion;
-        birdImage.src = data.imagen_referencia;
-        birdImage.style.display = 'block';
-        resultsContainer.style.display = 'block';
-        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    // --- 5. LÓGICA PARA VOLVER A ESCANEAR ---
+    rescanBtn.addEventListener('click', () => {
+        startCamera();
+    });
+
+    // --- 6. MOSTRAR LOS RESULTADOS REALES ---
+    function displayResults(predictions) {
+        if (predictions && predictions.length > 0) {
+            // Tomamos la predicción más probable (la primera)
+            const bestPrediction = predictions[0];
+            const probability = (bestPrediction.probability * 100).toFixed(2); // Convertir a porcentaje
+            
+            // Capitalizamos el nombre del ave
+            const birdName = bestPrediction.className.split(',')[0].replace(/^\w/, c => c.toUpperCase());
+            
+            resultsTitle.textContent = 'Resultados del Análisis';
+            const content = `
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mejor resultado: ${birdName}</h3>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Probabilidad:</strong> ${probability}%</p>
+                    <p>La IA ha identificado la imagen con la clasificación anterior. Puedes buscar más información sobre esta ave en nuestra sección "Aves".</p>
+                    <hr>
+                    <h4>Otras posibilidades:</h4>
+                    <ul class="list-group">
+                        ${predictions.slice(1).map(p => `<li class="list-group-item">${p.className.split(',')[0]}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            birdInfoPanel.innerHTML = content;
+        } else {
+            resultsTitle.textContent = 'No se pudo identificar';
+            birdInfoPanel.innerHTML = '<div class="panel-body"><p>La IA no pudo reconocer un ave en la imagen. Por favor, intenta de nuevo con una foto más clara.</p></div>';
+        }
     }
 
-    function displayNotFound(predictionName) {
-        birdName.textContent = "Ave no encontrada en la base de datos";
-        scientificName.textContent = `La IA sugiere: ${predictionName}`;
-        birdDescription.textContent = "No tenemos información detallada para esta ave, pero puedes buscarla en nuestra sección de Aves. ¡Añadiremos más especies pronto!";
-        birdImage.style.display = 'none'; // Ocultamos la imagen si no hay info
-        resultsContainer.style.display = 'block';
-        resultsContainer.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Iniciar la carga al entrar a la página
-    loadResources();
+    // --- Iniciar todo ---
+    startCamera();
+    loadModel();
 });
