@@ -1,39 +1,37 @@
-# 🐦 EcoAves: Plataforma Educativa y de Conservación (Nicaragua)
+# 💚 EcoAves: Conectando Tecnología y Naturaleza en Nicaragua
 
-**Equipo de Desarrollo:** BitStorm
+## 🌿 Descubre la Avifauna Nicaragüense
 
-**Descripción Corta:** EcoAves es una aplicación móvil y sitio web enfocada en el **turismo educativo** y la **identificación de la avifauna nicaragüense**. Su propósito principal es servir como una plataforma que conecta la tecnología con la naturaleza, ofreciendo una experiencia interactiva y accesible a estudiantes, investigadores y público general.
+**EcoAves** es una **plataforma educativa y tecnológica** diseñada para el **turismo educativo** y la **identificación de aves nicaragüenses**.
 
----
+Nuestro propósito es servir como el puente que conecta la tecnología moderna con la rica biodiversidad local, ofreciendo una experiencia interactiva y accesible a:
+* Estudiantes
+* Investigadores principiantes
+* Público general interesado en la fauna.
 
-## 🚀 Propósito del Proyecto
-
-El objetivo principal es fortalecer la educación ambiental y el conocimiento de la biodiversidad local. Más allá de un simple catálogo, EcoAves integra:
-
-* **Simulación de Reconocimiento:** Uso de la cámara del dispositivo para un escaneo simulado de aves.
-* **Escalabilidad a IA:** Una arquitectura modular que permite la futura incorporación de un modelo de **Inteligencia Artificial** para el reconocimiento automático de especies.
+Somos más que un simple catálogo digital; buscamos **fortalecer la educación ambiental** y el conocimiento de la fauna local.
 
 ---
 
-## 🛠️ Instalación y Requisitos
+## 📱 Características Clave de la Aplicación
 
-El proyecto está desarrollado en **Python** utilizando el framework **Kivy**, lo que permite construir interfaces gráficas responsivas y multiplataforma (Android, Windows, Linux).
+Desarrollada utilizando **Python** y el framework **Kivy**, EcoAves ofrece una experiencia intuitiva, atractiva y pedagógica:
 
-### 1. Requisitos Previos
+* **🦅 Identificación Interactiva:** Usa la cámara de tu dispositivo para realizar un escaneo simulado de aves.
+* **📚 Catálogo Detallado:** Explora información completa de especies nicaragüenses, incluyendo nombre común, nombre científico, descripción y características.
+* **📸 Galería de Capturas:** Mantén un registro de las aves que has fotografiado durante tus sesiones.
+* **🔭 Diseño Escalable:** Nuestra arquitectura modular está preparada para integrar modelos de **Inteligencia Artificial** para el reconocimiento automático de especies en el futuro.
 
-Asegúrate de tener instalado:
-* **Python**: Se recomienda una versión compatible con Kivy (Python 3+).
-* **Git**: Para clonar el repositorio.
+---
 
-### 2. Clonar el Repositorio
+## 🌍 Impacto y Visión
 
-Abre tu terminal y ejecuta:
-```bash
-git clone https://github.com/Elimandro/EcoAves.git
-cd EcoAves
+**EcoAves** se proyecta como una herramienta de alto impacto para la **educación**, el **turismo** y la **conservación** en Nicaragua. Al fomentar el interés y la participación en la observación y estudio de aves, contribuimos a la protección de nuestro patrimonio natural.
 
-# Instalación de Kivy y OpenCV
-pip install kivy opencv-python
+> EcoAves es una plataforma educativa y ambiental que conecta la tecnología con la naturaleza.
 
+---
 
-python main.py
+### 👨‍💻 Equipo de Desarrollo
+
+Este proyecto fue desarrollado por **BitStorm**.
